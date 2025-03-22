@@ -4,11 +4,11 @@
  */
 package com.pos.webserviceprimos;
 
-import jakarta.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Endpoint {
 
     @GetMapping("/servicoRest/{v}")
-    public String servicoRest(@PathParam("v") int v) {
+    public String servicoRest(@PathVariable("v") Integer v) {
         return primos(v).stream()
                 .map(String::valueOf)
                 .collect(Collectors.joining(", "));
